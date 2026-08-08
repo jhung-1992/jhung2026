@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>士官長正規班115-2期學科</title>
+<title>士官長正規班115-2期學科測驗</title>
 <style>
 :root{
  --navy:#07152f;--navy2:#10295f;--blue:#2563eb;--blue2:#1d4ed8;
@@ -65,13 +65,30 @@ button,input,select,textarea{font:inherit} button{cursor:pointer} .hidden{displa
 footer{text-align:center;color:#7c8797;padding:30px 16px 40px}
 @media(max-width:900px){.stage-grid{grid-template-columns:repeat(2,1fr)}.quiz-layout{grid-template-columns:1fr}.sidebar{position:static}.stats,.result-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:650px){.container{padding:10px}.topinner{padding:11px 12px;align-items:flex-start}.brand h1{font-size:16px}.brand small{display:none}.logo{width:38px;height:38px;border-radius:11px;font-size:17px}.actions{gap:5px}.actions .btn{padding:8px 9px;font-size:12px}.hero{padding:18px}.hero h2{font-size:22px}.mode-grid,.subjects,.form-grid{grid-template-columns:1fr}.setup{padding:15px}.quiz-main{padding:12px}.exam-section{padding:12px;margin:10px 0 16px}.qtext{font-size:17px}.option{padding:11px}.result-head{padding:18px}.score{width:120px;height:120px;font-size:32px}.stats,.result-grid{grid-template-columns:1fr 1fr}}
+.topinner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{min-width:0;flex:1}
+.brand h1{font-size:24px;white-space:nowrap;margin:0}
+.header-actions{margin-left:auto;flex-wrap:nowrap}
+.header-actions .btn{white-space:nowrap}
+.result-grid{grid-template-columns:repeat(3,1fr)!important}
+@media(max-width:650px){
+ .topinner{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:10px}
+ .brand{min-width:0;flex:1}
+ .brand h1{font-size:15px!important;white-space:nowrap;letter-spacing:-.4px}
+ .header-actions{display:flex;gap:4px;margin-left:auto}
+ .header-actions .btn{padding:7px 7px;font-size:11px}
+ .result-grid{grid-template-columns:repeat(3,1fr)!important;gap:6px}
+ .result-grid .stat{padding:10px 5px}
+ .result-grid .stat span{font-size:11px}
+ .result-grid .stat strong{font-size:20px}
+}
 </style>
 </head>
 <body>
 <header class="topbar">
  <div class="topinner">
-  <div class="brand"><div class="logo">正</div><div><h1>士官長正規班115-2期學科</h1><small>學科題庫與測驗系統</small></div></div>
-  <div class="actions" style="margin-left:58px">
+  <div class="brand"><div><h1>士官長正規班115-2期學科測驗</h1></div></div>
+  <div class="actions header-actions">
    <button class="btn btn-outline" onclick="showHome()">首頁</button>
    <button class="btn btn-outline" onclick="showHistory()">成績紀錄</button>
   </div>
@@ -80,13 +97,7 @@ footer{text-align:center;color:#7c8797;padding:30px 16px 40px}
 
 <main class="container">
 <section id="homeView">
- <div class="card hero">
-  <span class="badge">115-2期</span>
-  <h2>士官長正規班學科測驗</h2>
-  <p>第一階段測驗 8月26日（三）<br>第二階段測驗 9月24日（四）<br>第三階段測驗 10月21日（三）<br>第四階段測驗 11月18日（四）</p>
- </div>
-
- <div class="section-title"><h3>① 選擇考試階段</h3></div>
+<div class="section-title"><h3>① 選擇考試階段</h3></div>
  <div class="stage-grid" id="stageGrid"></div>
 
  <div id="examSetup" class="card setup">
@@ -140,8 +151,8 @@ footer{text-align:center;color:#7c8797;padding:30px 16px 40px}
   <div class="mini">本次測驗成績</div><div class="score" id="scoreText">0</div><h2>測驗完成</h2><div class="mini" id="resultMeta"></div>
   <div class="result-grid">
    <div class="stat"><span>總題數</span><strong id="rTotal">0</strong></div>
-   <div class="stat"><span>答對</span><strong id="rCorrect">0</strong></div>
-   <div class="stat"><span>答錯</span><strong id="rWrong">0</strong></div>
+   <div class="stat"><span>答對數</span><strong id="rCorrect">0</strong></div>
+   <div class="stat"><span>答錯數</span><strong id="rWrong">0</strong></div>
   </div>
   <div class="hero-actions" style="justify-content:center"><button class="btn btn-primary" onclick="showHome()">返回首頁</button><button id="retryBtn" class="btn btn-green" onclick="retryWrong()">錯題重測</button></div>
  </div>
